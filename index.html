@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Ani.JS – An JavaScript Animation Library used inline with HTML.</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Catamaran:400,300,500,600,700'
+          rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/rainbow.css">
+
+
+    <link rel="stylesheet" href="plugin/ani-js/anicollection.css">
+
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section class="landing">
+            <h1 class="clickEnter active" data-anijs="if: click, do: flipOutX animated active, after: removeAnim">Click
+                to Begin Presentation</h1>
+            <h1 class="bounceIn animated" data-anijs="if: animationend, on: h1.clickEnter, do: $addClass active">
+                Ani.JS</h1>
+            <h4 class="slideInUp animated" data-anijs="if: animationend, on: h1.clickEnter, do: $addClass active">An
+                JavaScript/CSS3 Animation Library Using Custom HTML Attributes</h4>
+        </section>
+
+        <section>
+            <h2>What is Ani.JS</h2>
+            <p>
+                Ani.JS is an animation library that uses HTML attribute tags to animate web pages. The previous slide
+                used the code below to create the animations using Ani.JS:
+            </p>
+            <pre><code>&lt;h1 class=&quot;clickEnter active&quot; data-anijs=&quot;if: click, do: flipOutX animated active, after: removeAnim&quot;&gt;Click to Begin Presentation&lt;/h1&gt;
+&lt;h1 class=&quot;bounceIn animated&quot; data-anijs=&quot;if: animationend, on: h1.clickEnter, do: $addClass active&quot;&gt; Ani.JS&lt;/h1&gt;
+&lt;h4 class=&quot;slideInUp animated&quot; data-anijs=&quot;if: animationend, on: h1.clickEnter, do: $addClass active&quot;&gt;
+    An JavaScript/CSS3 Animation Library Using Custom HTML Attributes
+&lt;/h4&gt;</code></pre>
+        </section>
+
+        <!-- Example of nested vertical slides -->
+        <section class="codeInspection">
+                <h2>Examining the Code</h2>
+                <p>Let's examine a portion of the code.</p>
+            <p>The rest of the code is basic markup to style the element. The portion that is important to the animation is the following.</p>
+            <hr>
+            <p class="code"><span class="fragment grow highlight-blue" data-fragment-index="0">data-anijs = &quot;</span><span class="fragment grow highlight-blue" data-fragment-index="1">if: click,</span> <span class="fragment grow highlight-blue" data-fragment-index="2">do: flipOutX animated active,</span> <span class="fragment grow highlight-blue" data-fragment-index="3">after: removeAnim</span><span class="fragment grow highlight-blue" data-fragment-index="0">&quot;</span></p>
+            <h3 class="fragment bounceIn animated"  data-fragment-index="0">The "data-anijs" Attribute</h3>
+            <p class="fragment bounceInUp animated" data-fragment-index="0">The information about the animation should be stored in this attribute on any HTML tag. Within here you store the object that gets passed to Ani.JS</p>
+            <h3 class="fragment bounceIn animated"  data-fragment-index="1">The "if" Key</h3>
+            <p class="fragment bounceInUp animated" data-fragment-index="1">This makes the animation fire on a click event. Other events can be use. More events can be found at the <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">Mozilla Developer Network</a>.</p>
+            <h3 class="fragment bounceIn animated"  data-fragment-index="2">The "do" Key</h3>
+            <p class="fragment bounceInUp animated" data-fragment-index="2">This is where you insert the animations you wish to run once the event happens. This essentially adds classes and animates the changes in those clases.</p>
+            <h3 class="fragment bounceIn animated"  data-fragment-index="3">The "after" Key</h3>
+            <p class="fragment bounceInUp animated" data-fragment-index="3">The after key is where you store functions that you wish to happen after the animation is complete. The removeAnim removes the classes added above. This is not typically necessary but I wanted to removed the active class which was in the HTML code.</p>
+        </section>
+
+        <section class="menuSample">
+            <h2>An Animated Menu</h2>
+                <nav data-anijs="if: mouseleave, on: .menuSample nav > ul > li, do: hinge animated visible, to: .menuSample ul li ul li, after: removeAnim">
+                    <ul>
+                        <li><span>Menu</span>
+                            <ul>
+                                <li class="first" data-anijs="if: mouseenter, on: .menuSample nav > ul > li, do:bounceInUp animated visible, to: .menuSample ul li ul li.first">Home</li>
+                                <li class="second" data-anijs="if: animationend, on: .menuSample nav > ul > li > ul > li.first, do:zoomInDown animated visible, to: .menuSample ul li ul li.second">Portfolio</li>
+                                <li class="third"  data-anijs="if: animationend, on: .menuSample nav > ul > li > ul > li.second, do:slideInRight animated visible, to: .menuSample ul li ul li.third">About Us</li>
+                                <li class="fourth"  data-anijs="if: animationend, on: .menuSample nav > ul > li > ul > li.third, do:flipInX animated visible, to: .menuSample ul li ul li.fourth">Contact Us</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+        </section>
+
+        <section class="menuCode">
+            <section>
+                <h2>The Menu Code</h2>
+                <p>&lt;nav data-anijs=&quot;if: mouseleave, on: .menuSample nav &gt; ul &gt; li, do: hinge animated visible, to: .menuSample ul li ul li, after: removeAnim&quot;&gt;</p>
+                <p class="unimport">&nbsp;&nbsp;&lt;ul&gt;&lt;li&gt;&lt;span&gt;Menu&lt;/span&gt;&lt;ul&gt;</p>
+                <p>&lt;li class=&quot;first&quot; data-anijs=&quot;if: mouseenter, on: .menuSample nav &gt; ul &gt; li, do:bounceInUp animated visible, to: .menuSample ul li ul li.first&quot;&gt;Home&lt;/li&gt;</p>
+                <p>&lt;li class=&quot;second&quot; data-anijs=&quot;if: animationend, on: .menuSample nav &gt; ul &gt; li &gt; ul &gt; li.first, do:zoomInDown animated visible, to: .menuSample ul li ul li.second&quot;&gt;Portfolio&lt;/li&gt;</p>
+                <p>&lt;li class=&quot;third&quot; data-anijs=&quot;if: animationend, on: .menuSample nav &gt; ul &gt; li &gt; ul &gt; li.second, do:slideInRight animated visible, to: .menuSample ul li ul li.third&quot;&gt;About Us&lt;/li&gt;</p>
+                <p>&lt;li class=&quot;fourth&quot; data-anijs=&quot;if: animationend, on: .menuSample nav &gt; ul &gt; li &gt; ul &gt; li.third, do:flipInX animated visible, to: .menuSample ul li ul li.fourth&quot;&gt;Contact Us&lt;/li&gt;</p>
+                <p class="unimport">&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/nav&gt;</p>
+            </section>
+            <section>
+                <h2>Beginning the Animation</h2>
+                <p>&lt;li class=&quot;first&quot; data-anijs=&quot;<span  class="fragment grow highlight-blue" data-fragment-index="0">if: mouseenter,</span><span  class="fragment grow highlight-blue" data-fragment-index="1">on: .menuSample nav &gt; ul &gt; li,</span> <span  class="fragment grow highlight-blue" data-fragment-index="2">do: bounceInUp animated visible,</span> <span  class="fragment grow highlight-blue" data-fragment-index="3">to: .menuSample ul li ul li.first&quot;</span>&gt;Home&lt;/li&gt;</p>
+                <p class="fadeInUp animated fragment descript" data-fragment-index="0">The animation is trigger by a mouseenter.</p>
+                <p class="fadeInUp animated fragment descript" data-fragment-index="1">The element that is being watched for a mouse enter is the immediate li child of our main ul element. This can be left out if the element you are watching is the element that contains this data-anijs attribute.</p>
+                <p class="fadeInUp animated fragment descript" data-fragment-index="2">Then you would specify the animation, or rather classes you wish to add, and then Ani.JS adds those classes and animates if indicated by those classes.</p>
+                <p class="fadeInUp animated fragment descript" data-fragment-index="3">Finally the element that is getting the classes added is specified. This can be left out if the element you are animating is the element that contains this data-anijs attribute. This sets up the first animation on the first menu item.</p>
+                <p class="fadeInUp animated fragment" data-fragment-index="4">&lt;li class=&quot;second&quot; data-anijs=&quot;<span  class="fragment grow highlight-blue" data-fragment-index="4">if: animationend, on: .menuSample nav &gt; ul &gt; li &gt; ul &gt; li.first,</span> do:zoomInDown animated visible, to: .menuSample ul li ul li.second&quot;&gt;Portfolio&lt;/li&gt;</p>
+                <p class="fadeInUp animated fragment" data-fragment-index="4">&lt;li class=&quot;third&quot; data-anijs=&quot;<span  class="fragment grow highlight-blue" data-fragment-index="4">if: animationend, on: .menuSample nav &gt; ul &gt; li &gt; ul &gt; li.second,</span> do:slideInRight animated visible, to: .menuSample ul li ul li.third&quot;&gt;About Us&lt;/li&gt;</p>
+                <p class="fadeInUp animated fragment" data-fragment-index="4">&lt;li class=&quot;fourth&quot; data-anijs=&quot;<span  class="fragment grow highlight-blue" data-fragment-index="4">if: animationend, on: .menuSample nav &gt; ul &gt; li &gt; ul &gt; li.third,</span> do:flipInX animated visible, to: .menuSample ul li ul li.fourth&quot;&gt;Contact Us&lt;/li&gt;</p>
+                <p class="bounceIn animated fragment descript" data-fragment-index="4">We also have the animations on the next three menu items. These fire on the animation end of the previous items.</p>
+            </section>
+        </section>
+
+        <section class="final">
+            <h2>And Much More...</h2>
+            <p>
+                This is the basic of Ani.JS. There is much more like the <span class="fragment grow highlight-red" data-fragment-index="0">before:</span> and <span class="fragment highlight-green grow" data-fragment-index="1">after:</span> keys which are used to trigger events before and after. You can also create your own <span class="fragment highlight-blue grow" data-fragment-index="2">custom animations</span> and add them to Ani.JS's library.
+            </p>
+            <h4 class="lightSpeedIn animated fragment" data-fragment-index="3">Check out the <a href="http://anijs.github.io/" target="_blank">Ani.JS</a> website for more.</h4>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        touch: true,
+        mouseWheel: true,
+
+        transition: 'concave', // none/fade/slide/convex/concave/zoom
+        transitionSpeed: 'slow',
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true},
+            {src: 'plugin/ani-js/anijs-min.js', async: true}
+        ]
+    });
+
+</script>
+
+
+</body>
+</html>

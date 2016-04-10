@@ -1,0 +1,230 @@
+/*Changing Reveals Defaults*/
+.reveal {
+    font-family: "Catamaran", sans-serif;
+}
+
+.reveal .backgrounds{
+    background: url("../img/old_map.png") repeat;
+    opacity: .3;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    font-family: "Montserrat", Impact, sans-serif;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3{
+    color: #752c2f;
+}
+
+.reveal h3{
+    font-weight: normal;
+    font-size: 1.25em;
+}
+
+.reveal h6{
+    font-size:.8em;
+}
+
+.reveal p{
+    font-size:.8em;
+}
+
+    /*Slide Navigation Color Change*/
+    .reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled
+    {
+        border-left-color: #6f090e;
+    }
+
+    .reveal .controls .navigate-right.enabled:hover{
+        border-left-color: #8c5457;
+    }
+
+    .reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled{
+        border-right-color: #6f090e;
+    }
+
+    .reveal .controls .navigate-left.enabled:hover{
+        border-right-color: #8c5457;
+    }
+
+    .reveal .controls .navigate-down, .reveal .controls .navigate-down.enabled{
+        border-top-color: #6f090e;
+    }
+
+    .reveal .controls .navigate-down.enabled:hover{
+        border-top-color: #8c5457;
+    }
+
+    .reveal .controls .navigate-up, .reveal .controls .navigate-up.enabled{
+        border-bottom-color: #6f090e;
+    }
+
+    .reveal .controls .navigate-up.enabled:hover{
+        border-bottom-color: #8c5457;
+    }
+
+
+
+/*Styling for the first slide*/
+.reveal .landing .clickEnter{
+    color: rgba(115, 46, 49, 0.61);
+    font-size:3.5em;
+    font-weight: normal;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+.reveal .landing .clickEnter:hover{
+    color: #752c2f;
+    transition: color .5s;
+}
+
+.reveal .landing *{
+    display:none;
+}
+
+.reveal .landing .active{
+    display:block;
+}
+
+
+/*Styling for the Code Inspection Section*/
+.codeInspection{
+    height:567px;
+}
+
+.codeInspection hr{
+    margin:25px;
+}
+
+.codeInspection h3{
+    margin-top:30px;
+}
+
+.codeInspection .code{
+    margin:30px 0;
+}
+
+.codeInspection span, .codeInspection span.fragment.grow.highlight-blue.visible, .menuCode span, .menuCode span.fragment.grow.highlight-blue.visible{
+    display: inline-block;
+    font-size:.9em;
+    color: #2c444d;
+    transform: scale(1);
+}
+
+.codeInspection span.fragment.grow.highlight-blue.visible.current-fragment, .menuCode span.fragment.grow.highlight-blue.visible.current-fragment{
+    background-color: #fff;
+    padding:10px;
+    border-radius:5px;
+    border:1px solid #555;
+    color:#1b91ff;
+    transform: scale(1.3);
+    z-index:100;
+    position:relative;
+}
+
+.reveal .slides section .fragment.visible:not(.grow), .reveal .slides section .fragment:not(.grow){
+    display:none;
+}
+
+.reveal .slides section .fragment.visible:not(.grow).current-fragment{
+    display:block;
+}
+
+/*Menu Example Styling*/
+.reveal .slides .menuSample nav ul{
+    list-style: none;
+    margin: 0;
+}
+
+.reveal .slides .menuSample nav > ul{
+    color:#fff;
+    width:500px;
+}
+
+.reveal .slides .menuSample nav > ul > li > span:hover{
+    background-color:#222;
+    transition: background-color .5s;
+}
+
+.reveal .slides .menuSample nav > ul > li > span{
+    background-color:#333;
+    display: inline-block;
+    transition: background-color .5s;
+    padding:20px 30px;
+    width:440px;
+}
+
+/*.reveal .slides .menuSample nav > ul > li > ul {*/
+    /*display:none;*/
+/*}*/
+
+.menuSample{
+    height:470px;
+}
+
+.reveal .slides .menuSample nav > ul > li > ul > li{
+    display:none;
+}
+
+.reveal .slides .menuSample nav > ul > li li{
+    padding:20px 30px;
+    background-color:#333;
+    transition: background-color .5s;
+}
+
+.reveal .slides .menuSample nav > ul > li ul li.visible{
+    display: block;
+}
+
+.reveal .slides .menuSample nav > ul > li li:hover{
+    background-color:#222;
+    transition: background-color .5s;
+}
+
+.menuCode section{
+    height:500px;
+}
+
+.menuCode p{
+    text-align:left;
+    font-size:.6em;
+    color: #2c444d;
+    transform: scale(1);
+}
+
+.menuCode p.unimport{
+    font-size: .4em;
+    margin:5px 0;
+}
+
+.menuCode p.descript{
+    font-weight: bold;
+}
+
+
+.final span, .final span.fragment.grow.visible{
+    display: inline-block;
+    font-size:.9em;
+    transform: scale(1);
+}
+
+.reveal .slides section.final .fragment.grow.visible{
+    transform: scale(1);
+}
+
+.reveal .slides section.final span.fragment.grow.visible.current-fragment{
+    transform: scale(1.3);
+    padding:0 30px;
+    z-index:100;
+    position:relative;
+}
